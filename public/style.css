@@ -1,0 +1,199 @@
+:root {
+  --body-bg: #f4f4f9;
+  --container-bg: #ffffff;
+  --header-bg: #4a90e2;
+  --header-text: #ffffff;
+  --chat-text: #333333;
+  --user-msg-bg: #4a90e2;
+  --user-msg-text: #ffffff;
+  --bot-msg-bg: #e5e5ea;
+  --bot-msg-text: #000000;
+  --form-bg: #ffffff;
+  --input-bg: #f1f1f1;
+  --input-text: #333333;
+  --input-border: #dddddd;
+  --button-bg: #4a90e2;
+  --button-text: #ffffff;
+  --button-hover-bg: #357abd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  --body-bg: #121212;
+  --container-bg: #1e1e1e;
+  --header-bg: #1f2937;
+  --header-text: #f9fafb;
+  --chat-text: #e5e7eb;
+  --user-msg-bg: #3b82f6;
+  --user-msg-text: #ffffff;
+  --bot-msg-bg: #374151;
+  --bot-msg-text: #e5e7eb;
+  --form-bg: #1e1e1e;
+  --input-bg: #374151;
+  --input-text: #f9fafb;
+  --input-border: #4b5563;
+  --button-bg: #3b82f6;
+  --button-hover-bg: #2563eb;
+  --button-text: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--body-bg);
+  color: var(--chat-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  height: 90vh;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: var(--header-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chat-box {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Custom Scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: var(--bot-msg-bg);
+  border-radius: 10px;
+  border: 2px solid var(--container-bg);
+}
+
+.message {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 75%;
+  line-height: 1.5;
+  word-wrap: break-word;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user {
+  background-color: var(--user-msg-bg);
+  color: var(--user-msg-text);
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.bot {
+  background-color: var(--bot-msg-bg);
+  color: var(--bot-msg-text);
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.bot pre {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  color: #f8f8f2; /* Light text for dark background */
+}
+
+.bot code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#chat-form {
+  display: flex;
+  padding: 15px 20px;
+  border-top: 1px solid var(--input-border);
+  background-color: var(--form-bg);
+  transition: background-color 0.3s, border-color 0.3s;
+  gap: 10px;
+}
+
+#user-input {
+  flex-grow: 1;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-radius: 20px;
+  padding: 12px 18px;
+  font-size: 1em;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#user-input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
+
+button[type="submit"] {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--button-hover-bg);
+}
