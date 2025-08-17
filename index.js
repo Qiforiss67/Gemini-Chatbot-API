@@ -12,7 +12,7 @@ const app = express();
 
 const ai = new GoogleGenAI({  apiKey: process.env.GEMINI_API_KEY });
 
-const GEMMINI_MODEL = 'gemini-2.5-flash';
+const GEMINI_MODEL = 'gemini-2.5-flash';
 
 app.use(cors());
 app.use(express.json());
@@ -47,7 +47,7 @@ app.post('/api/chat', async (req, res) => {
             parts: [{ text: msg.content }]
         }));
         const resp = await ai.models.generateContent({
-            model: GEMMINI_MODEL,
+            model: GEMINI_MODEL,
             contents,
         });
         res.json({ result: extractText(resp) });
